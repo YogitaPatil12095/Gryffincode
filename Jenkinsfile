@@ -48,6 +48,14 @@ pipeline {
                 '''
             }
         }
+        stage('Deploy Container') {
+            when {
+                expression { currentBuild.result == null }
+            }
+            steps {
+                sh 'docker run -d -p 3000:3000 $IMAGE_NAME:latest'
+            }
+        }
 
     }
 
