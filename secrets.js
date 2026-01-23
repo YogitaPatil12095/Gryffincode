@@ -1,0 +1,1 @@
+const STRIPE_KEY = "sk_live_51N7EXAMPLESECRET";
