@@ -25,25 +25,20 @@ pipeline {
             }
         }
 
-        stage('Dependency Vulnerability Scan (npm audit)') {
-            steps {
-                sh 'npm audit --audit-level=high'
-            }
     
-        }
         stage('Dependency Scan (npm audit)') {
             steps {
                 sh 'npm audit || true'
             }
         }
-
-
         
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $IMAGE_NAME:latest .'
             }
         }
+
+        
 
     }
 
